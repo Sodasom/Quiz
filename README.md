@@ -1,46 +1,30 @@
-# Getting Started with Create React App
+# Quiz Web/App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 필수 구현
 
-## Available Scripts
+- [x]  사용자는 닉네임을 입력하면 ‘퀴즈 풀기’ 버튼을 클릭하여 퀴즈 풀기를 시작할 수 있다.
+- [x]  사용자는 문항에 대한 답안을 4개 보기 중에 선택할 수 있다.
+- [x]  사용자는 답안을 선택하면 다음 문항을 볼 수 있다.
+    - [x]  답안 선택 후 다음 문항 버튼을 볼 수 있다.
+    - [x]  답안이 맞았는지 틀렸는지 바로 알 수 있다.
+    - [x]  다음 문항 버튼을 클릭하여 다음 문항으로 이동할 수 있다.
+- [x]  모든 문항을 다 풀면 사용자는 다음과 같은 결과 정보를 볼 수 있다.
+    - [x]  퀴즈를 마칠 때까지 소요된 시간
+    - [x]  정답 개수
+    - [x]  오답 수
 
-In the project directory, you can run:
+🚫 **해결해야 될 사항**
 
-### `yarn start`
+- 콘솔에 계속 데이터가 찍힘 … 렌더링이 계속 일어나는 듯?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 추가 구현
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [ ]  역대 점수 랭킹 보기
+- [ ]  정 오답에 대한 비율을 차트로 표기
+- [ ]  다시풀기
+- [ ]  오답노트
+- [ ]  애니메이션
 
-### `yarn test`
+### 성능 관리
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [ ]  성능 관리에 대한 코드 작성
