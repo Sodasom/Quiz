@@ -1,13 +1,3 @@
-export interface QuizProps {
-  nickname: string;
-}
-
-export interface AnswerProps {
-  currentQuestion: number;
-  selectedAnswer: string;
-  handleAnswer: (answer: string) => void;
-}
-
 export interface Quiz {
   category: string;
   type: string;
@@ -15,4 +5,9 @@ export interface Quiz {
   question: string;
   correct_answer: string;
   incorrect_answers: string[];
+}
+
+export interface QuizRankingData {
+  nickname: string;
+  score: number;
 }

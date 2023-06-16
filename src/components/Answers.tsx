@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useRecoilValue } from "recoil";
 import { answerState, quizState } from "../recoil/selectors";
-import { AnswerProps } from "../types/quiz";
+import { AnswerProps } from "../types/props";
 import { shuffle } from "../utils/shuffle";
 
 export default function Answers({
@@ -17,25 +17,28 @@ export default function Answers({
   );
 
   return (
-    <div className="flex flex-col items-center">
+    <>
       {answers.map((answer, index) => (
-        <button
-          className={`
-      bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded mb-4 
+        <div className="flex items-center mb-[10px]">
+          <span className="mr-[28px] text-sm">{index + 1}.</span>
+          <button
+            className={`w-[320px] px-[20px] py-[8px] bg-boxBg rounded-[8px] text-sm text-start hover:bg-hover
       ${
         selectedAnswer === answer
           ? selectedAnswer === quiz[currentQuestion].correct_answer
-            ? "bg-green-500 text-white"
-            : "bg-red-500 text-white"
+            ? "bg-correct text-white"
+            : "bg-incorrect text-white"
           : ""
       }
     `}
-          key={index}
-          onClick={() => handleAnswer(answer)}
-        >
-          {answer}
-        </button>
+            key={index}
+            onClick={() => handleAnswer(answer)}
+            disabled={selectedAnswer ? true : false}
+          >
+            {answer}
+          </button>
+        </div>
       ))}
-    </div>
+    </>
   );
 }
