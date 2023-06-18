@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
-import { scoreState, timeState } from "../recoil/atoms";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { scoreState, timeState, wrongAnswerState } from "../recoil/atoms";
 import { quizState } from "../recoil/selectors";
 import Answers from "../components/Answers";
 import Loading from "../components/Loading";
@@ -19,7 +19,9 @@ export default function Quiz() {
   // 문제 다 푼 여부
   const [isFinished, setIsFinished] = useState<boolean>(false);
   // 문제 푼 시간
-  const [time, setTime] = useRecoilState(timeState);
+  const setTime = useSetRecoilState(timeState);
+  // 틀린 문제와 답
+  const [wrongAnswers, setWrongAnswers] = useRecoilState(wrongAnswerState);
   const navigate = useNavigate();
 
   const handleAnswer = (answer: string) => setSelectedAnswer(answer);
@@ -27,6 +29,15 @@ export default function Quiz() {
   const handleNextQuestion = () => {
     if (selectedAnswer === quiz[currentQuestion].correct_answer) {
       setScore(score + 1);
+    } else {
+      setWrongAnswers([
+        ...wrongAnswers,
+        {
+          question: quiz[currentQuestion].question,
+          my_answer: selectedAnswer,
+          correct_answer: quiz[currentQuestion].correct_answer,
+        },
+      ]);
     }
     setSelectedAnswer("");
     setCurrentQuestion(currentQuestion + 1);
@@ -55,9 +66,9 @@ export default function Quiz() {
   return (
     <LayoutContainer>
       <div className="h-full flex flex-col justify-between">
-        <div>
+        <div className="w-full">
           <ProgressBar currentQuestion={currentQuestion} />
-          <h1 className="font-bold mb-[20px]">{currentQuestion + 1}번 문제</h1>
+          <h1 className="mb-[20px] font-bold">{currentQuestion + 1}번 문제</h1>
           <p className="mb-[20px]">{quiz[currentQuestion].question}</p>
           <Answers
             currentQuestion={currentQuestion}

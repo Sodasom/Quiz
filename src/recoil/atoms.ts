@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import { WrongAnswer } from "../types/quiz";
 
 export const nicknameState = atom({
   key: "nicknameState",
@@ -13,4 +14,9 @@ export const scoreState = atom({
 export const timeState = atom({
   key: "timeState",
   default: 0,
+});
+
+export const wrongAnswerState = atom<WrongAnswer[]>({
+  key: "wrongAnswerState",
+  default: [],
 });

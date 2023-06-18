@@ -11,3 +11,9 @@ export interface QuizRankingData {
   nickname: string;
   score: number;
 }
+
+export interface WrongAnswer {
+  question: string;
+  my_answer: string;
+  correct_answer: string;
+}

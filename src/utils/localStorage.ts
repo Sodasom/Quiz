@@ -17,7 +17,12 @@ export const setRankingData = (data: QuizRankingData[]) => {
 // 점수 저장 함수
 export const saveRanking = (nickname: string, score: number) => {
   const rankingData = getRankingData();
-  rankingData.push({ nickname, score });
+  const existingData = rankingData.find((data) => data.nickname === nickname);
+  if (existingData) {
+    existingData.score = score;
+  } else {
+    rankingData.push({ nickname, score });
+  }
   setRankingData(rankingData);
 };
 
