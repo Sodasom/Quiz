@@ -4,7 +4,6 @@ import { scoreState, timeState, wrongAnswerState } from "../recoil/atoms";
 import { quizState } from "../recoil/selectors";
 import Answers from "../components/Answers";
 import Loading from "../components/Loading";
-import LayoutContainer from "../components/LayoutContainer";
 import { useNavigate } from "react-router-dom";
 import ProgressBar from "../components/ProgressBar";
 
@@ -64,29 +63,27 @@ export default function Quiz() {
   }
 
   return (
-    <LayoutContainer>
-      <div className="h-full flex flex-col justify-between">
-        <div className="w-full">
-          <ProgressBar currentQuestion={currentQuestion} />
-          <h1 className="mb-[20px] font-bold">{currentQuestion + 1}번 문제</h1>
-          <p className="mb-[20px]">{quiz[currentQuestion].question}</p>
-          <Answers
-            currentQuestion={currentQuestion}
-            selectedAnswer={selectedAnswer}
-            handleAnswer={handleAnswer}
-          />
-        </div>
-        {selectedAnswer && (
-          <button
-            className="w-full py-[9px] bg-point rounded-[8px] text-white"
-            onClick={
-              currentQuestion === 9 ? handleFinishQuiz : handleNextQuestion
-            }
-          >
-            다음 문제
-          </button>
-        )}
+    <div className="h-full flex flex-col justify-between mb-[40px]">
+      <div className="w-full">
+        <ProgressBar currentQuestion={currentQuestion} />
+        <h1 className="mb-[20px] font-bold">{currentQuestion + 1}번 문제</h1>
+        <p className="mb-[20px]">{quiz[currentQuestion].question}</p>
+        <Answers
+          currentQuestion={currentQuestion}
+          selectedAnswer={selectedAnswer}
+          handleAnswer={handleAnswer}
+        />
       </div>
-    </LayoutContainer>
+      {selectedAnswer && (
+        <button
+          className="w-full py-[9px] bg-point rounded-[8px] text-white"
+          onClick={
+            currentQuestion === 9 ? handleFinishQuiz : handleNextQuestion
+          }
+        >
+          다음 문제
+        </button>
+      )}
+    </div>
   );
 }

@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { nicknameState, scoreState, timeState } from "../recoil/atoms";
 import Ranking from "../components/Ranking";
-import LayoutContainer from "../components/LayoutContainer";
 import RatioChart from "../components/RatioChart";
 
 export default function Result() {
@@ -12,31 +11,52 @@ export default function Result() {
   const navigate = useNavigate();
 
   return (
-    <LayoutContainer>
-      <div className="flex flex-col justify-center items-center">
-        <h2 className="text-4xl font-bold mb-8">{nickname} 님의 퀴즈 결과</h2>
-        <div className="text-center mb-8">
-          <p className="text-2xl mb-4">소요된 시간: {time}초</p>
-          <p className="text-2xl mb-4">정답 개수: {score}</p>
-          <p className="text-2xl mb-4">오답 수: {10 - score}</p>
+    <>
+      <div className="h-full flex flex-col justify-between items-center">
+        <div className="w-full flex flex-col items-center">
+          <h2 className="mb-[20px] text-3xl font-bold">
+            {nickname} 님의 퀴즈 결과
+          </h2>
+          <div className="w-full flex mb-[20px]">
+            <table className="w-full">
+              <tbody>
+                <tr>
+                  <td className="text-left">소요된 시간</td>
+                  <td className="text-right">{time}초</td>
+                </tr>
+                <tr>
+                  <td className="text-left">정답 개수</td>
+                  <td className="text-right">
+                    <span className="text-correct">{score}</span>개
+                  </td>
+                </tr>
+                <tr>
+                  <td className="text-left">오답 수</td>
+                  <td className="text-right">
+                    <span className="text-incorrect">{10 - score}</span>개
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <RatioChart />
         </div>
-        <RatioChart />
-        <div className="mb-8">
+        <div className="w-full flex justify-between">
           <button
-            className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded mr-8"
+            className="w-1/2 py-[9px] mr-[20px] bg-point rounded-[8px] text-white"
             onClick={() => navigate("/quiz")}
           >
             다시 풀기
           </button>
           <button
-            className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded"
+            className="w-1/2 py-[9px] bg-incorrect rounded-[8px] text-white"
             onClick={() => navigate("/wrong")}
           >
             오답 노트
           </button>
         </div>
-        <Ranking />
       </div>
-    </LayoutContainer>
+      <Ranking />
+    </>
   );
 }

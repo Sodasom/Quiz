@@ -19,10 +19,10 @@ export default function Answers({
   return (
     <>
       {answers.map((answer, index) => (
-        <div className="flex items-center mb-[10px]">
+        <div key={index} className="flex items-center mb-[10px]">
           <span className="mr-[28px] text-sm">{index + 1}.</span>
           <button
-            className={`w-[320px] px-[20px] py-[8px] bg-boxBg rounded-[8px] text-sm text-start hover:bg-hover
+            className={`basis-[320px] px-[20px] py-[8px] bg-boxBg rounded-[8px] text-sm text-start
       ${
         selectedAnswer === answer
           ? selectedAnswer === quiz[currentQuestion].correct_answer
