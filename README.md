@@ -1,15 +1,22 @@
 # Quiz Web/App
 
-https://quiz-azure-six.vercel.app/
+[Quiz Site](https://quiz-azure-six.vercel.app/)
+
+***
+
 ### 🧚🏻‍♀️ Tech Stack
 <div style="display:flex; flex-direction:row;">
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
 <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white">
  <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">
+   <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white">
+  <img src="https://img.shields.io/badge/Recoil-000000?style=for-the-badge&logo=recoil&logoColor=white">
   <br />
   
   <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white">
 </div>
+
+***
 
 ### 필수 구현
 
