@@ -6,7 +6,11 @@ export const quizState = selector<Quiz[]>({
   get: async () => {
     const response = await fetch("https://opentdb.com/api.php?amount=10");
     const data = await response.json();
-    const quiz = data.results;
+    const quiz = data.results.map((quiz: Quiz) => {
+      const div = document.createElement("div");
+      div.innerHTML = quiz.question;
+      return { ...quiz, question: div.innerText };
+    });
     return quiz;
   },
 });
