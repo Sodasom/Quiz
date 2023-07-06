@@ -1,6 +1,6 @@
-import { CurrentQuizProps } from "../types/props";
+import { ICurrentQuizProps } from "../types/props";
 
-export default function ProgressBar({ currentQuestion }: CurrentQuizProps) {
+export default function ProgressBar({ currentQuestion }: ICurrentQuizProps) {
   return (
     <div className="mb-[20px]">
       <div className="w-full h-[8px] bg-boxBg rounded-[8px]">

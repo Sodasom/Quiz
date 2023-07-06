@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
-import { LayoutProps } from "../types/props";
+import { ILayoutProps } from "../types/props";
 
-export default function LayoutContainer({ children }: LayoutProps) {
+export default function LayoutContainer({ children }: ILayoutProps) {
   const { pathname } = useLocation();
   return (
     <main

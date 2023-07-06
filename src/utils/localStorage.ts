@@ -1,7 +1,7 @@
-import { QuizRankingData } from "../types/quiz";
+import { IQuizRankingData } from "../types/quiz";
 
 // 로컬 스토리지에 저장된 데이터 가져오기
-export const getRankingData = (): QuizRankingData[] => {
+export const getRankingData = (): IQuizRankingData[] => {
   const rankingData = localStorage.getItem("rankingData");
   if (rankingData) {
     return JSON.parse(rankingData);
@@ -10,7 +10,7 @@ export const getRankingData = (): QuizRankingData[] => {
 };
 
 // 로컬 스토리지에 데이터 저장하기
-export const setRankingData = (data: QuizRankingData[]) => {
+export const setRankingData = (data: IQuizRankingData[]) => {
   localStorage.setItem("rankingData", JSON.stringify(data));
 };
 
@@ -27,7 +27,7 @@ export const saveRanking = (nickname: string, score: number) => {
 };
 
 // 랭킹 정보 가져오기
-export const getRanking = (): QuizRankingData[] => {
+export const getRanking = (): IQuizRankingData[] => {
   const rankingData = getRankingData();
   return rankingData.sort((a, b) => b.score - a.score);
 };

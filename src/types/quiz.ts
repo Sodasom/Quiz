@@ -1,4 +1,4 @@
-export interface Quiz {
+export interface IQuiz {
   category: string;
   type: string;
   difficulty: string;
@@ -7,12 +7,12 @@ export interface Quiz {
   incorrect_answers: string[];
 }
 
-export interface QuizRankingData {
+export interface IQuizRankingData {
   nickname: string;
   score: number;
 }
 
-export interface WrongAnswer {
+export interface IWrongAnswer {
   question: string;
   my_answer: string;
   correct_answer: string;

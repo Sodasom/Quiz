@@ -1,12 +1,12 @@
 import { selector } from "recoil";
-import { Quiz } from "../types/quiz";
+import { IQuiz } from "../types/quiz";
 
-export const quizState = selector<Quiz[]>({
+export const quizState = selector<IQuiz[]>({
   key: "quizState",
   get: async () => {
     const response = await fetch("https://opentdb.com/api.php?amount=10");
     const data = await response.json();
-    const quiz = data.results.map((quiz: Quiz) => {
+    const quiz = data.results.map((quiz: IQuiz) => {
       const div = document.createElement("div");
       div.innerHTML = quiz.question;
       return { ...quiz, question: div.innerText };

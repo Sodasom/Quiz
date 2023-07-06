@@ -1,21 +1,21 @@
-export interface LayoutProps {
+export interface ILayoutProps {
   children: React.ReactNode;
 }
 
-export interface QuizProps {
+export interface IQuizProps {
   nickname: string;
 }
 
-export interface AnswerProps {
+export interface IAnswerProps {
   currentQuestion: number;
   selectedAnswer: string;
   handleAnswer: (answer: string) => void;
 }
 
-export interface ResultProps {
+export interface IResultProps {
   time: number;
 }
 
-export interface CurrentQuizProps {
+export interface ICurrentQuizProps {
   currentQuestion: number;
 }

@@ -1,14 +1,14 @@
 import { useMemo } from "react";
 import { useRecoilValue } from "recoil";
 import { answerState, quizState } from "../recoil/selectors";
-import { AnswerProps } from "../types/props";
+import { IAnswerProps } from "../types/props";
 import { shuffle } from "../utils/shuffle";
 
 export default function Answers({
   currentQuestion,
   selectedAnswer,
   handleAnswer,
-}: AnswerProps) {
+}: IAnswerProps) {
   const quiz = useRecoilValue(quizState);
   const answer = useRecoilValue(answerState);
   const answers = useMemo(
